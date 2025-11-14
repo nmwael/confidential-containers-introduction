@@ -27,18 +27,19 @@ A look at the ecosystem and roadmap, and how you can get started.
 Whether you’re a platform engineer, security architect, or cloud-native enthusiast, this talk will demystify confidential computing and show how CoCo brings stronger guarantees of data confidentiality, integrity, and code integrity to Kubernetes.
 
 ---
+
 ## Take aways
 
 1. Understand the fundamentals of confidential computing and why it’s essential for securing sensitive workloads in cloud-native environments.
 2. Learn how Confidential Containers integrate with Kubernetes to provide hardware-backed isolation and attestation without disrupting existing workflows.
 3. Discover practical use cases and next steps for adopting CoCo in real-world scenarios, from AI/ML to regulated industries.
 
-
 ### Introduction (5 min)
 
 ---
 
 ### Welcome & agenda
+
 Why confidentiality matters in cloud-native
 
 ---
