@@ -1,6 +1,6 @@
 ---
 title: Unlocking Confidential Computing: An Introduction to Confidential Containers in Kubernetes
-theme: uncover
+theme: gaia
 class:
 - invert
 paginate: true
@@ -15,27 +15,15 @@ marp: true
 
 ---
 
-As organizations increasingly move sensitive workloads to the cloud, ensuring data confidentiality during execution has become a critical challenge. Confidential Containers (CoCo), a CNCF sandbox project, addresses this by integrating confidential computing principles into the cloud-native ecosystem. Leveraging Trusted Execution Environments (TEEs) and hardware-backed security technologies such as Intel TDX, AMD SEV-SNP, and IBM Secure Execution, CoCo enables Kubernetes users to run containerized applications in isolated, attested environments—without modifying existing workflows.
-In this session, we’ll explore:
-
-What is Confidential Computing and why it matters?
-The architecture and trust model behind Confidential Containers.
-Key features: attestation, pod-centric design, and integration with Kata Containers.
-Use cases across regulated industries, AI/ML workloads, and multi-tenant environments.
-A look at the ecosystem and roadmap, and how you can get started.
-
-Whether you’re a platform engineer, security architect, or cloud-native enthusiast, this talk will demystify confidential computing and show how CoCo brings stronger guarantees of data confidentiality, integrity, and code integrity to Kubernetes.
-
----
-
-## Take aways
+## Take aways, what will you get from this
 
 1. Understand the fundamentals of confidential computing and why it’s essential for securing sensitive workloads in cloud-native environments.
 2. Learn how Confidential Containers integrate with Kubernetes to provide hardware-backed isolation and attestation without disrupting existing workflows.
 3. Discover practical use cases and next steps for adopting CoCo in real-world scenarios, from AI/ML to regulated industries.
 
-### Introduction (5 min)
+### Introduction
 
+<!-- 5 min introduction of this talk -->
 ---
 
 ### Welcome & agenda
@@ -44,41 +32,46 @@ Why confidentiality matters in cloud-native
 
 ---
 
-### Confidential Computing Basics (10 min)
+### Confidential Computing Basics
 
 What is confidential computing?
 TEEs and hardware technologies (Intel TDX, AMD SEV-SNP, IBM Secure Execution)
+<!-- 10 min -->
 
 ---
 
-### Confidential Containers Overview (15 min)
+### Confidential Containers Overview
 
 CNCF project background
 Architecture & trust model
 Integration with Kata Containers
+<!-- 15 min -->
 
 ---
 
-### Key Features & Workflow (10 min)
+### Key Features & Workflow
 
 Pod-centric design
 Attestation process
 Developer experience
+<!-- 10 min -->
 
 ---
 
-### Use Cases & Ecosystem (10 min)
+### Use Cases & Ecosystem 
 
 AI/ML workloads
 Multi-tenant environments
 Regulated industries
+<!-- 10 min -->
 
 ---
 
-### Roadmap & How to Get Started (5 min)
+### Roadmap & How to Get Started
 
 Community resources
 Future developments
+<!-- 10 min -->
 
 ---
 
