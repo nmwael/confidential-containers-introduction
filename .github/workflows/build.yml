@@ -1,0 +1,61 @@
+# Workflow based off: https://github.com/ralexander-phi/marp-to-pages
+name: marp-to-pages
+concurrency: marp-to-pages
+on:
+  push:
+    branches: [ main ]
+permissions:
+  contents: write    
+jobs:
+  build:
+    runs-on: ubuntu-latest
+    steps:
+
+      - name: Checkout code
+        uses: actions/checkout@v3
+      - name: Ensure build dir exists
+        run: |
+          mkdir -p build/media
+          chmod -R a+rwX build
+      - name: Dependencies
+        run: sudo apt-get update && sudo apt-get install -y fontconfig fonts-dejavu graphviz
+      - name: Get plantuml and process
+        run: |
+          wget https://github.com/plantuml/plantuml/releases/latest/download/plantuml.jar
+          java -jar plantuml.jar "diagrams/*.puml" --output-dir ../build/media --format svg
+
+      - name: Login to GitHub Container Registry
+        uses: docker/login-action@v3
+        with:
+          registry: ghcr.io
+          username: ${{ github.actor }}
+          password: ${{ secrets.GITHUB_TOKEN }}
+      - name: Render Mermaid diagrams via Docker
+        run: |        
+          set -euo pipefail
+
+          for f in diagrams/*.mmd diagrams/*.mermaid; do
+                [ -e "$f" ] || continue
+                base="${f##*/}"
+                out="build/media/${base%.*}.svg"
+                echo "Rendering: $f -> $out"
+                docker run --rm \
+                  -v "${{ github.workspace }}:/data" \
+                  -w /data/diagrams \
+                  ghcr.io/mermaid-js/mermaid-cli/mermaid-cli:latest -i "${base}" -o "/data/${out}" -c /data/mermaid-config.json
+          done
+            
+      - name: Copy images directory (if exists)
+        run: if [[ -d media ]]; then cp -R -v media build/; fi
+      - name: Marp Build (slide-deck)
+        run: |
+          docker run --rm \
+            -v "${{ github.workspace }}:/data" \
+            -w /data \
+            ghcr.io/marp-team/marp-cli:latest \
+            --bespoke.progress slide-deck.md -o /data/build/index.html
+      - name: Deploy production
+        uses: JamesIves/github-pages-deploy-action@v4
+        with:
+          branch: gh-pages
+          folder: ./build/

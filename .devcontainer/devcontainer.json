@@ -1,0 +1,37 @@
+// For format details, see https://aka.ms/devcontainer.json. For config options, see the
+// README at: https://github.com/devcontainers/templates/tree/main/src/debian
+{
+	"name": "Debian",
+	// Or use a Dockerfile or Docker Compose file. More info: https://containers.dev/guide/dockerfile
+	"image": "mcr.microsoft.com/devcontainers/base:trixie",
+	"customizations": {
+		"vscode": {
+			"settings": {
+				"plantuml.jar": "/workspaces/confidential-containers-introduction/plantuml.jar"
+			},
+			"extensions": [
+				"marp-team.marp-vscode",
+				// "Terrastruct.d2",
+				"DavidAnson.vscode-markdownlint",
+				"jebbs.plantuml",
+				"vstirbu.vscode-mermaid-preview"
+			]
+		}
+	},
+	"features": {
+		"ghcr.io/devcontainers/features/node:1": {
+			"installYarnUsingApt": true,
+			"pnpmVersion": "latest",
+			"nvmVersion": "latest"
+		},
+		"ghcr.io/devcontainers/features/java:1": {
+			"version": "21",
+			"jdkDistro": "tem",
+			"gradleVersion": "none",
+			"mavenVersion": "none",
+			"antVersion": "none",
+			"groovyVersion": "none"
+		}
+	},
+	"postCreateCommand": "bash .devcontainer/postcreate.sh"
+}
