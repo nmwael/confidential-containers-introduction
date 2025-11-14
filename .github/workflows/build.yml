@@ -1,0 +1,36 @@
+# Workflow based off: https://github.com/ralexander-phi/marp-to-pages
+name: marp-to-pages
+concurrency: marp-to-pages
+on:
+  push:
+    branches: [ main ]
+permissions:
+  contents: write    
+jobs:
+  build:
+    runs-on: ubuntu-latest
+    steps:
+
+      - name: Checkout code
+        uses: actions/checkout@v3
+      - name: Ensure build dir exists
+        run: mkdir -p build
+      - name: Get plantuml and process
+        run: |
+          wget https://github.com/plantuml/plantuml/releases/latest/download/plantuml.jar
+          java -jar plantuml.jar "diagrams/*.puml" --output-dir ../build/media --format svg
+
+      - name: Copy images directory (if exists)
+        run: if [[ -d media ]]; then cp -R media build/media; fi
+
+      - name: Marp Build (slide-deck)
+        uses: docker://marpteam/marp-cli:latest
+        with:
+          args: --bespoke.progress slide-deck.md -o build/index.html
+        env:
+          MARP_USER: root:root
+      - name: Deploy production
+        uses: JamesIves/github-pages-deploy-action@v4
+        with:
+          branch: gh-pages
+          folder: ./build/

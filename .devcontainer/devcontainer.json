@@ -1,0 +1,42 @@
+// For format details, see https://aka.ms/devcontainer.json. For config options, see the
+// README at: https://github.com/devcontainers/templates/tree/main/src/debian
+{
+	"name": "Debian",
+	// Or use a Dockerfile or Docker Compose file. More info: https://containers.dev/guide/dockerfile
+	"image": "mcr.microsoft.com/devcontainers/base:bookworm",
+	"customizations": {
+		"vscode": {
+			"settings": {
+				"plantuml.jar": "/workspaces/confidential-containers-introduction/plantuml.jar"
+			},
+			"extensions": [
+				"marp-team.marp-vscode",
+				// "Terrastruct.d2",
+				"DavidAnson.vscode-markdownlint",
+				"jebbs.plantuml"
+			]
+		}
+	},
+	"features": {
+		"ghcr.io/devcontainers/features/node:1": {
+			"installYarnUsingApt": true,
+			"version": "22",
+			"pnpmVersion": "latest",
+			"nvmVersion": "latest"
+		},
+		"ghcr.io/devcontainers/features/java:1": {
+			"version": "21",
+			"jdkDistro": "tem",
+			"gradleVersion": "none",
+			"mavenVersion": "none",
+			"antVersion": "none",
+			"groovyVersion": "none"
+		}
+	},
+	"postCreateCommand": {
+		// "setupd2": "curl -fsSL https://d2lang.com/install.sh | sh -s --",
+		"fontconfigAndgraphviz": "sudo apt-get update && sudo apt-get install -y fontconfig fonts-dejavu graphviz",
+		"plantuml": "sudo wget -O plantuml.jar https://github.com/plantuml/plantuml/releases/latest/download/plantuml.jar"
+
+	}
+}
