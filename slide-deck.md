@@ -21,12 +21,12 @@ marp: true
 2. Learn how Confidential Containers integrate with Kubernetes to provide hardware-backed isolation and attestation without disrupting existing workflows.
 3. Discover practical use cases and next steps for adopting CoCo in real-world scenarios, from AI/ML to regulated industries.
 
-### Introduction
+## Introduction
 
 <!-- 5 min introduction of this talk -->
 ---
 
-### Welcome & agenda
+## Welcome & agenda
 
 Why confidentiality matters in cloud-native
 
@@ -75,4 +75,4 @@ Future developments
 
 ---
 
-### Q&A (5 min)
+## Q&A (5 min)
