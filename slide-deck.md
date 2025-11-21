@@ -29,38 +29,49 @@ _For your eyes only_
 ### Introduction
 
 <!-- 5 min introduction of this talk -->
+<!--
+Let's start by presenting myself
+* I'm Nino Martinez Wael
+* I'm from Denmark
+* I work as a Principal Software Engineer at TDC Erhverv Data Security & Data Privacy
+* I've joined the confidential container project as contributer in august and have been working with Confidential compute since 2022 
+* I've been a proffesional since 2002, and contributing to opensource projects since 2006.
+-->
 
 ---
 
 ## Welcome & agenda
 
-Why confidentiality matters in cloud-native
+1) _Scope of talk_
+1) _Confidential Computing Basics_
+1) _Confidential Computing Basics_
+
+
+<!-- 
+Im honored to be able to speak to you guys on this topic.
+This talk wil on a introduction level to keep it within the timeframe.
+ -->
 
 ---
 
-### Confidential Computing Basics
+### <!--fit--> Confidential Computing Basics
 
-- Vision of confidential computing?
-- TEEs and hardware technologies (Intel TDX, AMD SEV-SNP, IBM Secure Execution)
-
-![bg right](media/attestation.svg)
-
-<!-- 10 min -->
-
----
-
-#### <!--fit-->Vision of confidential computing
-
-1) _Secure Data-in-Use_
-2) _Enable Trusted Collaboration_
-3) _Drive Universal Adoption_
+1) _Scope_
+2) _Secure Data-in-Use_
+3) _Enable Trusted Collaboration_
+4) _Drive Universal Adoption_
 
 <!--
-10 min
-1. _Secure Data-in-Use_: Secure Data-in-Use represents a transformative approach to data protection, ensuring that sensitive information remains encrypted and isolated even while being processed, by leveraging hardware-based Trusted Execution Environments (TEEs) that create secure enclaves resistant to unauthorized access, thereby mitigating risks of insider threats, cloud vulnerabilities, and advanced cyberattacks, while enabling organizations to confidently run workloads in shared or untrusted infrastructures without compromising privacy, integrity, or compliance, ultimately fostering trust, accelerating innovation, and empowering secure collaboration across industries such as finance, healthcare, and government, where confidentiality is paramount for regulatory adherence and competitive advantage in an increasingly interconnected digital ecosystem 
-2. _Enable Trusted Collaboration_: Enable Trusted Collaboration envisions a secure ecosystem where organizations, partners, and even competitors can share and process sensitive data without exposing intellectual property or violating privacy, by leveraging confidential computing technologies such as secure enclaves, remote attestation, and cryptographic isolation, ensuring that workloads remain protected even in multi-party or untrusted environments, thereby unlocking new opportunities for joint innovation in areas like federated learning, AI model training, and cross-industry analytics, while maintaining compliance with stringent regulations, reducing risk, and fostering trust as a core principle for digital transformation in sectors where collaboration is essential yet confidentiality cannot be compromised.
-3. _Drive Universal Adoption_: Drive Universal Adoption focuses on establishing confidential computing as a foundational security layer across cloud, edge, and on-premises environments, through the development of open standards, interoperability frameworks, and robust compliance models that enable seamless integration for enterprises of all sizes, while promoting industry-wide collaboration via consortia and partnerships with hardware vendors, cloud providers, and regulators, ensuring that secure data-in-use becomes a default expectation rather than an exception, ultimately creating a global trust fabric that accelerates innovation, supports privacy-preserving AI, and empowers organizations to confidently embrace digital transformation without sacrificing security, performance, or regulatory adherence in an interconnected world.
+20 min
+
+1. _Secure Data-in-Use_: Secure Data-in-Use represents a transformative approach to data protection, ensuring that sensitive information remains encrypted and isolated while being processed in memory and on cpu, by leveraging hardware-based Trusted Execution Environments (TEEs) that create secure enclaves that are locked down.
+
+2. _Enable Trusted Collaboration_: Enable Trusted Collaboration by providing verifiable evidence for a TEE (application) instance. This is also called a quote, a quote consists of Platform Configuration Register measurements (PCR) which essentially are HASH'es of information like cpuid's etc. So validating a quote consisting of PCR measurements for a TEE on a 3rd party level is called Remote attestation or RATS.
+
+3. _Drive Universal Adoption_: Early attempts on creating TEE's were quite invasive and often required either reconfiguration of the runtime or complete reimplementation, TEE's of this kind were processbased. A more adoption firendly approach are making the TEE vm based, it has a MUCH MUCH larger tcb but are far eaisier to use. 
 -->
+
+![bg right](media/attestation.svg)
 
 ---
 
@@ -89,8 +100,8 @@ Least privilege principles for the Kubernetes Cluster administration capabilitie
   - Resource access
   - Passing attestation
   - find more
-- Pod-centric design
-- Hyperscaler CoCo peerpods Flavors (azure,aws,gcp,ibmcloud,alibabacloud)
+- Pod-centric TEE design via micro vm's
+- Hyperscaler CoCo peerpods Flavors (azure,aws,gcp,ibmcloud,alibabacloud...)
 - Attestation process
 - Developer experience
 <!-- 10 min -->
@@ -113,5 +124,12 @@ Future developments
 <!-- 10 min -->
 
 ---
+
+## Reference links
+
+- Presentation link --> ![This presentation](/media/qrcode_presentation_url.svg)
+
+- [Confidential Containers](https://confidentialcontainers.org/)
+- [PCR Specification](https://trustedcomputinggroup.org/wp-content/uploads/TCG_PCClient_PFP_r1p05_v22_02dec2020.pdf)
 
 ## Q&A (5 min)
