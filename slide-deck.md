@@ -33,9 +33,9 @@ _For your eyes only or is it_
 <!--
 Let's start by presenting myself
 * I'm Nino Martinez Wael
-* I'm from Denmark
+* I'm from Denmark, Frederikssund
 * I work as a Principal Software Engineer at TDC Erhverv Data Security & Data Privacy
-* I've joined the confidential container project as contributer in august and have been working with Confidential compute since 2022 
+* I've joined the confidential container project as contributer in august 2025 and have been working with Confidential compute since 2022 
 * I've been a proffesional since 2002, and contributing to opensource projects since 2006.
 -->
 
@@ -47,10 +47,9 @@ Let's start by presenting myself
 1) _Confidential Computing Basics_
 1) _Confidential Computing Basics_
 
-
 <!-- 
 Im honored to be able to speak to you guys on this topic.
-This talk wil on a introduction level to keep it within the timeframe.
+This talk wil on a introduction level.
  -->
 
 ---
@@ -129,8 +128,9 @@ Future developments
 ## Reference links
 
 - Presentation link --> ![This presentation](./media/qrcode_presentation_url.svg)
-
 - [Confidential Containers](https://confidentialcontainers.org/)
-- [PCR Specification](https://trustedcomputinggroup.org/wp-content/uploads/TCG_PCClient_PFP_r1p05_v22_02dec2020.pdf)
+- [LibVirt](https://libvirt.org/)
+- [KataContainers](https://katacontainers.io/)
+- [PCR (measurements) Specification](https://trustedcomputinggroup.org/wp-content/uploads/TCG_PCClient_PFP_r1p05_v22_02dec2020.pdf)
 
 ## Q&A (5 min)
