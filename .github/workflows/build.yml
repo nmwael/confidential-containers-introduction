@@ -21,7 +21,7 @@ jobs:
           java -jar plantuml.jar "diagrams/*.puml" --output-dir ../build/media --format svg
 
       - name: Copy images directory (if exists)
-        run: if [[ -d media ]]; then cp -R media build/media; fi
+        run: if [[ -d media ]]; then cp -R -v media build/media; fi
 
       - name: Marp Build (slide-deck)
         uses: docker://marpteam/marp-cli:latest
