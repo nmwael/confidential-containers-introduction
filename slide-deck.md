@@ -11,7 +11,8 @@ marp: true
 ---
 
 ## <!--fit--> Unlocking Confidential Computing~ An Introduction to Confidential Containers in Kubernetes
-_For your eyes only_
+
+_For your eyes only or is it_
 
 <!-- _footer: Author: Nino Martinez Wael -->
 <!-- _paginate: false -->
@@ -127,7 +128,7 @@ Future developments
 
 ## Reference links
 
-- Presentation link --> ![This presentation](/media/qrcode_presentation_url.svg)
+- Presentation link --> ![This presentation](./media/qrcode_presentation_url.svg)
 
 - [Confidential Containers](https://confidentialcontainers.org/)
 - [PCR Specification](https://trustedcomputinggroup.org/wp-content/uploads/TCG_PCClient_PFP_r1p05_v22_02dec2020.pdf)
