@@ -105,7 +105,7 @@ annotations:
 
 - Pod-centric TEE design via lightweight vm's
 - Hyperscaler CoCo peerpod Flavors (Azure, AWS, GCP, IBMcloud, Alibaba Cloud...)
-- OCI signed & layered multi key encryption support
+- OCI image signature verification / multi key encryption support
 - Attestation process
 
 <!-- 10 min -->
