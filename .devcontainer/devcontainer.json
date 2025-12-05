@@ -13,7 +13,8 @@
 				"marp-team.marp-vscode",
 				// "Terrastruct.d2",
 				"DavidAnson.vscode-markdownlint",
-				"jebbs.plantuml"
+				"jebbs.plantuml",
+				"vstirbu.vscode-mermaid-preview"
 			]
 		}
 	},
@@ -36,7 +37,8 @@
 	"postCreateCommand": {
 		// "setupd2": "curl -fsSL https://d2lang.com/install.sh | sh -s --",
 		"fontconfigAndgraphviz": "sudo apt-get update && sudo apt-get install -y fontconfig fonts-dejavu graphviz",
-		"plantuml": "sudo wget -O plantuml.jar https://github.com/plantuml/plantuml/releases/latest/download/plantuml.jar"
+		"plantuml": "sudo wget -O plantuml.jar https://github.com/plantuml/plantuml/releases/latest/download/plantuml.jar",
+		"mermaid": "sudo apt-get install -y libdbus-1-3 libnss3 libxss1 libasound2 libx11-xcb1 libxcomposite1 libxrandr2 libgbm1 libgtk-3-0 libdrm2 libxcb1 libxdamage1 libxfixes3 fonts-liberation libu2f-udev && npm install -g @mermaid-js/mermaid-cli"
 
 	}
 }
