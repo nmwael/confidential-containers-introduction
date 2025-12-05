@@ -14,7 +14,9 @@ jobs:
       - name: Checkout code
         uses: actions/checkout@v3
       - name: Ensure build dir exists
-        run: mkdir -p build/media
+        run: |
+          mkdir -p build/media
+          chmod -R a+rwX build
       - name: Dependencies
         run: sudo apt-get update && sudo apt-get install -y fontconfig fonts-dejavu graphviz
       - name: Get plantuml and process
@@ -50,9 +52,8 @@ jobs:
           docker run --rm \
             -v "${{ github.workspace }}:/data" \
             -w /data \
-            --user $(id -u):$(id -g) \
             ghcr.io/marp-team/marp-cli:latest \
-            --bespoke.progress slide-deck.md -o build/index.html
+            --bespoke.progress slide-deck.md -o /data/build/index.html
       - name: Deploy production
         uses: JamesIves/github-pages-deploy-action@v4
         with:
