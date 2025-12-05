@@ -1,0 +1,40 @@
+quadrantChart
+    title Combined Risk Quadrant: Risk
+    x-axis Low Confidentiality --> High Confidentiality
+    y-axis Low Value --> High Value
+
+    %% -------------------------------
+    %% Low Value / Low Confidentiality
+    %% -------------------------------
+    quadrant-1 "Must be run in a TEE"
+    Data_PublicDocs: [0.1, 0.1]
+    Data_WebsiteContent: [0.3, 0.3]
+    Role_Interns: [0.2, 0.2]
+
+    %% -------------------------------
+    %% High Value / Low Confidentiality
+    %% -------------------------------
+    quadrant-2 "Evaluate on value"
+    Data_MarketingAnalytics: [0.32, 0.65]
+    Data_PublicRoadmap: [0.15, 0.75]
+    Proc_SupplyChainOps: [0.35, 0.7]
+    ITS_CRMAnalytics: [0.4, 0.8]
+    Vendor_LogisticsProvider: [0.35, 0.85]
+
+
+    %% -------------------------------
+    %% Low Value / High Confidentiality
+    %% -------------------------------
+    quadrant-3 "Re-evaluate"
+    Data_OldInternalMemos: [0.85, 0.25]
+    Proc_HRGrievances: [0.9, 0.2]
+    Vendor_TempAccess: [0.8, 0.4]
+    Role_ContractorsElevatedAccess: [0.8, 0.15]
+
+    %% -------------------------------
+    %% High Value / High Confidentiality
+    %% -------------------------------
+    quadrant-4 "Evaluate on confidentialty"
+    Data_CustomerPII: [0.9, 0.9]
+    ITS_AuthSystem: [0.9, 0.95]
+    Vendor_CloudProvider: [0.85, 0.85]
