@@ -42,7 +42,7 @@ jobs:
                 docker run --rm \
                   -v "${{ github.workspace }}:/data" \
                   -w /data/diagrams \
-                  ghcr.io/mermaid-js/mermaid-cli/mermaid-cli:latest -i "${base}" -o "/data/${out}"
+                  ghcr.io/mermaid-js/mermaid-cli/mermaid-cli:latest -i "${base}" -o "/data/${out}" -t dark -b transparent
           done
             
       - name: Copy images directory (if exists)
