@@ -78,7 +78,7 @@ This talk wil on a introduction level. We c
 ### Confidential Containers Overview
 
 1) _Confidential Containers (CoCo) mission statement_
-2) _Architecture & trust model_
+2) _Architecture & trust model_ ![bg right fit](media/teevmmeasurement.svg)
 
 <!--  15 min
 
@@ -91,7 +91,7 @@ Least privilege principles for the Kubernetes Cluster administration capabilitie
 Built of OSS compontents such as Kata Containers, LibVirt with a modular approach so components can be reused across Hyperscalers. Custom built vm's for Hyperscalers.
  -->
 
- ![bg right fit](media/teevmmeasurement.svg)
+ 
 
 ---
 
