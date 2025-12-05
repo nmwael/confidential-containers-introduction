@@ -35,7 +35,7 @@ jobs:
           docker run --rm \
             -v "${{ github.workspace }}:/data" \
             -w /data/diagrams \          
-            ghcr.io/mermaid-js/mermaid-cli/mermaid-cli \
+            ghcr.io/mermaid-js/mermaid-cli/mermaid-cli:latest \
             bash -lc '
               shopt -s nullglob
               for f in *.mmd *.mermaid; do
