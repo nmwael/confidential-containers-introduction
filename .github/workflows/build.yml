@@ -32,7 +32,7 @@ jobs:
         working-directory: diagrams
         run: |
           # One-liner variant (non-recursive; current directory only):
-          for f in *.mmd *.mermaid; do [ -e "$f" ] && mmdc -i "$f" -o "/build/media/${f%.*}.svg"; done
+          for f in *.mmd *.mermaid; do [ -e "$f" ] && mmdc -i "$f" -o "../build/media/${f%.*}.svg"; done
 
       - name: Copy images directory (if exists)
         run: if [[ -d media ]]; then cp -R -v media build/; fi
