@@ -22,6 +22,12 @@ jobs:
           wget https://github.com/plantuml/plantuml/releases/latest/download/plantuml.jar
           java -jar plantuml.jar "diagrams/*.puml" --output-dir ../build/media --format svg
 
+      - name: Login to GitHub Container Registry
+        uses: docker/login-action@v3
+        with:
+          registry: ghcr.io
+          username: ${{ github.actor }}
+          password: ${{ secrets.GITHUB_TOKEN }}
       - name: Render Mermaid diagrams via Docker
         run: |
           set -euo pipefail
