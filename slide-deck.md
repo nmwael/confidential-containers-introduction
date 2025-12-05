@@ -91,6 +91,8 @@ Least privilege principles for the Kubernetes Cluster administration capabilitie
 Built of OSS compontents such as Kata Containers, LibVirt with a modular approach so components can be reused across Hyperscalers. Custom built vm's for Hyperscalers.
  -->
 
+ ![bg right](media/teevmmeasurement.svg)
+
 ---
 
 ### Key Features CoCo TEE
