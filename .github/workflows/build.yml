@@ -41,8 +41,8 @@ jobs:
                   -v "${{ github.workspace }}:/data" \
                   -w /data/diagrams \
                   ghcr.io/mermaid-js/mermaid-cli/mermaid-cli:latest -i "${base}" -o "/data/${out}"
-              done
-            '
+          done
+            
       - name: Copy images directory (if exists)
         run: if [[ -d media ]]; then cp -R -v media build/; fi
       - name: Marp Build (slide-deck)
