@@ -43,22 +43,9 @@ jobs:
                 [ -e "$f" ] || continue
                 out="/data/build/media/${f%.*}.svg"
                 echo "Rendering: $f -> $out"
-                mmdc -i "$f" -o "$out"
+                minlag/mermaid-cli -i "$f" -o "$out"
               done
             '
-      - name: Setup Node
-        uses: actions/setup-node@v4
-        with:
-          node-version: '20'
-      - name: Install mermaid-cli
-        run: npm install -g @mermaid-js/mermaid-cli
-      - name: Render all .mmd and .mermaid to .svg
-        shell: bash
-        working-directory: diagrams
-        run: |
-          # One-liner variant (non-recursive; current directory only):
-          for f in *.mmd *.mermaid; do [ -e "$f" ] && mmdc -i "$f" -o "../build/media/${f%.*}.svg"; done
-
       - name: Copy images directory (if exists)
         run: if [[ -d media ]]; then cp -R -v media build/; fi
       - name: Marp Build (slide-deck)
