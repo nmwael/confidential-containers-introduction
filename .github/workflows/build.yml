@@ -21,6 +21,28 @@ jobs:
         run: |
           wget https://github.com/plantuml/plantuml/releases/latest/download/plantuml.jar
           java -jar plantuml.jar "diagrams/*.puml" --output-dir ../build/media --format svg
+
+      - name: Render Mermaid diagrams via Docker
+        run: |
+          set -euo pipefail
+          mkdir -p build/media
+          docker run --rm \
+            -v "${{ github.workspace }}:/data" \
+            -w /data/diagrams \
+            ghcr.io/mermaid-js/mermaid-cli:latest \
+            bash -lc '
+              shopt -s nullglob
+              for f in *.mmd *.mermaid; do
+                [ -e "$f" ] || continue
+                out="/data/build/media/${f%.*}.svg"
+                echo "Rendering: $f -> $out"
+                # Inputs and outputs are under /data => persisted to the workspace
+                mmdc -i "$f" -o "$out"
+              done
+            '
+
+
+
       - name: Setup Node
         uses: actions/setup-node@v4
         with:
