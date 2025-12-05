@@ -71,7 +71,7 @@ This talk wil on a introduction level. We c
 3. _Drive Universal Adoption_: Early attempts on creating TEE's were quite invasive and often required either reconfiguration of the runtime or complete reimplementation, TEE's of this kind were processbased. A more adoption firendly approach are making the TEE vm based, it has a MUCH MUCH larger tcb but are far eaisier to use. 
 -->
 
-![bg right](media/attestation.svg)
+![bg right fit](media/attestation.svg)
 
 ---
 
@@ -91,7 +91,7 @@ Least privilege principles for the Kubernetes Cluster administration capabilitie
 Built of OSS compontents such as Kata Containers, LibVirt with a modular approach so components can be reused across Hyperscalers. Custom built vm's for Hyperscalers.
  -->
 
- ![bg right](media/teevmmeasurement.svg)
+ ![bg right fit](media/teevmmeasurement.svg)
 
 ---
 
