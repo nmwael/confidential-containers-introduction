@@ -31,19 +31,16 @@ jobs:
       - name: Render Mermaid diagrams via Docker
         run: |        
           set -euo pipefail
-          docker run --rm \
-            --entrypoint /bin/sh \
-            -v "${{ github.workspace }}:/data" \
-            -w /data/diagrams \
-            ghcr.io/mermaid-js/mermaid-cli/mermaid-cli:latest \
-            -c '
-              set -e
-              # current folder only (non-recursive)
-              for f in *.mmd *.mermaid; do
+
+          for f in diagrams/*.mmd diagrams/*.mermaid; do
                 [ -e "$f" ] || continue
-                out="/data/build/media/${f%.*}.svg"
+                base="${f##*/}"
+                out="build/media/${base%.*}.svg"
                 echo "Rendering: $f -> $out"
-                minlag/mermaid-cli -i "$f" -o "$out"
+                docker run --rm \
+                  -v "${{ github.workspace }}:/data" \
+                  -w /data/diagrams \
+                  ghcr.io/mermaid-js/mermaid-cli/mermaid-cli:latest -i "${base}" -o "/data/${out}"
               done
             '
       - name: Copy images directory (if exists)
