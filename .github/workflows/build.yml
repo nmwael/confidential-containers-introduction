@@ -50,6 +50,7 @@ jobs:
           docker run --rm \
             -v "${{ github.workspace }}:/data" \
             -w /data \
+            --user $(id -u):$(id -g) \
             ghcr.io/marp-team/marp-cli:latest \
             --bespoke.progress slide-deck.md -o build/index.html
       - name: Deploy production
