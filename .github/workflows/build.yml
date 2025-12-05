@@ -14,17 +14,28 @@ jobs:
       - name: Checkout code
         uses: actions/checkout@v3
       - name: Ensure build dir exists
-        run: mkdir -p build
+        run: mkdir -p build/media
       - name: Dependencies
         run: sudo apt-get update && sudo apt-get install -y fontconfig fonts-dejavu graphviz
       - name: Get plantuml and process
         run: |
           wget https://github.com/plantuml/plantuml/releases/latest/download/plantuml.jar
           java -jar plantuml.jar "diagrams/*.puml" --output-dir ../build/media --format svg
+      - name: Setup Node
+        uses: actions/setup-node@v4
+        with:
+          node-version: '20'
+      - name: Install mermaid-cli
+        run: npm install -g @mermaid-js/mermaid-cli
+      - name: Render all .mmd and .mermaid to .svg
+        shell: bash
+        working-directory: diagrams
+        run: |
+          # One-liner variant (non-recursive; current directory only):
+          for f in *.mmd *.mermaid; do [ -e "$f" ] && mmdc -i "$f" -o "/build/media/${f%.*}.svg"; done
 
       - name: Copy images directory (if exists)
         run: if [[ -d media ]]; then cp -R -v media build/; fi
-
       - name: Marp Build (slide-deck)
         uses: docker://marpteam/marp-cli:latest
         with:
