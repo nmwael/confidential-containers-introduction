@@ -26,7 +26,6 @@ _For your eyes only or is it_
 3. Discover practical use cases and next steps for adopting CoCo in real-world scenarios, from AI/ML to regulated industries.
 
 ---
-
 Sneak peak of whats needed for workload to run with hardware confidentiality
 
 ```yaml
