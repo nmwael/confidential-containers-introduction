@@ -1,16 +1,16 @@
 ---
-title: Unlocking Confidential Computing~ An Introduction to Confidential Containers in Kubernetes
+title: Unlocking Confidential Computing ~ An Introduction to Confidential Containers in Kubernetes
 theme: gaia
 class:
 - invert
 paginate: true
 size: 16:9
-author: Nino Martinez Wael
+author: Nino Martinez Wael / linkedin.com/in/ninomartinez/
 transition: fade
 marp: true
 ---
 
-## <!--fit--> Unlocking Confidential Computing~ An Introduction to Confidential Containers in Kubernetes
+## <!--fit--> Unlocking Confidential Computing ~ An Introduction to Confidential Containers in Kubernetes
 
 _For your eyes only or is it_
 
@@ -27,14 +27,29 @@ _For your eyes only or is it_
 
 ---
 
+Sneak peak of whats needed for workload to run with hardware confidentiality
+
+```yaml
+annotations:
+    io.katacontainers.config.runtime.cc_init_data: ""
+```
+
+---
+
 ### Introduction
+
+1. I'm Nino Martinez Wael
+2. I'm from Denmark, Frederikssund
+3. I work as a Chief Software Architect at TDC Erhverv Data Security & Data Privacy
+4. I've joined the confidential container project as contributer in august 2025 and have been working with Confidential compute since 2022
+5. I've been a proffesional since 2002, and contributing to opensource projects since 2006.
 
 <!-- 5 min introduction of this talk -->
 <!--
 Let's start by presenting myself
 * I'm Nino Martinez Wael
 * I'm from Denmark, Frederikssund
-* I work as a Principal Software Engineer at TDC Erhverv Data Security & Data Privacy
+* I work as a Chief Software Architect at TDC Erhverv Data Security & Data Privacy
 * I've joined the confidential container project as contributer in august 2025 and have been working with Confidential compute since 2022 
 * I've been a proffesional since 2002, and contributing to opensource projects since 2006.
 -->
@@ -50,7 +65,7 @@ Let's start by presenting myself
 
 <!-- 
 Im honored to be able to speak to you guys on this topic.
-This talk wil on a introduction level. We c
+This talk wil on a introduction level. We can discuss further after the talk.
  -->
 
 ---
@@ -90,12 +105,9 @@ Least privilege principles for the Kubernetes Cluster administration capabilitie
 2. _Architecture & trust model_:
 Built of OSS compontents such as Kata Containers, LibVirt with a modular approach so components can be reused across Hyperscalers. Custom built vm's for Hyperscalers.
  -->
-
- 
-
 ---
 
-### Key Features CoCo TEE
+### Key Features CoCo TEE (Pod creation)
 
 - Kubecentric, mindset
   - CoCo configuration defined via kubernetes annotations
@@ -113,12 +125,11 @@ annotations:
 <!-- 10 min -->
 ---
 
-### Key Features CoCo Trustee
+### Key Features CoCo Trustee (Attestation)
 
 - Rego policies
   - Premade configurable hardware attestation
   - Resource access
-  - find more
 - HSM integration
 
 ---
