@@ -13,7 +13,7 @@ footer: 'Nino Martinez Wael / nmwael.github.io'
 
 # <!--fit--> Unlocking Confidential Computing ~ An Introduction to Confidential Containers in Kubernetes
 
-_For your eyes only or is it_
+_For your eyes only, or is it_
 
 ---
 
@@ -36,12 +36,12 @@ Next steps for adopting CoCo.
 
 ## <!--fit--> Sneak peak of whats needed for workload to run with hardware confidentiality
 
-_Kubernetes snipplet_
+_Kubernetes snippet_
 
 ```yaml
 ...
 annotations:
-    io.katacontainers.config.runtime.cc_init_data: ""
+    io.katacontainers.config.runtime.cc_init_data: "BASE64 AAXXYY"
 ...  
 ```
 <!--
@@ -73,7 +73,7 @@ Let's start by presenting myself
 
 ---
 
-## Welcome & agenda
+## Agenda
 
 1) _Scope of talk_
 1) _Confidential Computing Basics_
@@ -84,7 +84,7 @@ Let's start by presenting myself
 time 00:06:00
 Im honored to be able to speak to you guys on this complex topic.
 This talk wil on a introduction level.
-We will go through Confidential Computing Basics to get an idea of what this area covers before diving into what CNCF Confidential Containers has to offer. If theres this for it we can take questions per topic, otherwise questions will be at the end. The talk will take around 60 minutes  
+We will go through Confidential Computing Basics to get an idea of what this area covers before diving into what CNCF Confidential Containers has to offer. If theres this for it we can take questions per topic, otherwise questions will be at the end. The talk will take around 45 minutes  
 
  -->
 
@@ -110,17 +110,22 @@ time 00:08:00
 
 ## <!--fit--> Confidential Computing Basics - Attestation
 
-1) _Idea behind attestation_ ![fit 33%](media/attestation.svg)
+1) _What is attestation_
+
+1) _Attestation in practice_ ![fit 33%](media/attestation.svg)
 <!--
 time 00:12:00
  Talk on attestation / RATS
+Explain what attestation means eg verify, stamp of approval
+
+
 -->
 ---
 
 ## Confidential Containers Overview
 
 1) _CNCF Confidential Containers (CoCo) mission statement_
-1) _Architecture & trust model_ ![fit](media/teevmmeasurement.svg)
+1) _Architecture & attestation measurements_ ![fit](media/teevmmeasurement.svg)
 <!-- _footer: "" -->
 <!--  
 time 00:18:00
@@ -161,7 +166,7 @@ It's first after a successful attestation that workload begins to start.
 
 ```yaml
 annotations:
-    io.katacontainers.config.runtime.cc_init_data: ""
+    io.katacontainers.config.runtime.cc_init_data: "BASE64 AAXXYY"
 ```
 <!-- 
 time 00:26:00
@@ -235,10 +240,10 @@ Secure key release flow, sealed secrets
 
 ## How to Get Started
 
-1) Currently CoCo can be deployed as OLM's, transitioning towards HELM charts.
+1) CoCo can be deployed via HELM charts.
 1) Guides on official website for the different cloudproviders (Azure, GCP, AWS & Bare metal)
 1) CoCo Trustee can be deployed as OLM's, transitioning towards HELM charts. Or simple DIY..
-1) Or go commercial with Openshift's [versions](https://www.redhat.com/en/blog/exploring-openshift-confidential-containers-solution)
+1) [Openshift](https://www.redhat.com/en/blog/exploring-openshift-confidential-containers-solution)
 
 <!-- 
 time 00:40:00
@@ -261,4 +266,4 @@ time 00:40:00
 <!-- _footer: Pic: Link to this presentation -->
 ---
 
-## Q&A (5 min)
+## Q&A
