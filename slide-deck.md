@@ -237,7 +237,8 @@ Secure key release flow, sealed secrets
 
 1) Currently CoCo can be deployed as OLM's, transitioning towards HELM charts.
 1) Guides on official website for the different cloudproviders (Azure, GCP, AWS & Bare metal)
-1) CoCo Trustee can be deployed as OLM's, transitioning towards HELM charts. Or simply a single container
+1) CoCo Trustee can be deployed as OLM's, transitioning towards HELM charts. Or simple DIY..
+1) Or go commercial with Openshift's [versions](https://www.redhat.com/en/blog/exploring-openshift-confidential-containers-solution)
 
 <!-- 
 time 00:40:00
@@ -257,6 +258,7 @@ time 00:40:00
 - [LibVirt](https://libvirt.org/)
 - Questions -> <nmwa@tdc.dk>
 
+<!-- _footer: Pic: Link to this presentation -->
 ---
 
 ## Q&A (5 min)
