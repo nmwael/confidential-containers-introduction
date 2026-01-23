@@ -57,8 +57,8 @@ For deployments utilizing CoCo above is all that is needed.
 1) I'm Nino Martinez Wael, from Denmark, Frederikssund
 1) I've been a professional from 2002, contributing to opensource projects from 2006
 1) I work as a Chief Architect at TDC Erhverv
-1) Joined the CNCF confidential containers as contributer in august 2025, working with Confidential compute since 2022
-1) I'm primarily a Java developer, doing RUST for lowlevel implementations
+1) Joined the CNCF confidential containers as contributor in august 2025, working with Confidential compute since 2022
+1) I'm primarily a Java developer, doing RUST for low level implementations
 
 <!--
 time 00:04:00  introduction of this talk
@@ -67,8 +67,8 @@ Let's start by presenting myself
 * I'm Nino Martinez Wael
 * I'm from Denmark, Frederikssund
 * I work as a Chief Architect at TDC Erhverv Data Security & Data Privacy
-* I've joined the confidential container project as contributer in august 2025 and have been working with Confidential compute since 2022 
-* I've been a proffesional since 2002, and contributing to opensource projects since 2006.
+* I've joined the confidential container project as contributor in august 2025 and have been working with Confidential compute since 2022 
+* I've been a professional since 2002, and contributing to opensource projects since 2006.
 -->
 
 ---
@@ -99,11 +99,11 @@ We will go through Confidential Computing Basics to get an idea of what this are
 <!--
 time 00:08:00
 
-1. _Secure Data-in-Use_: Secure Data-in-Use represents a transformative approach to data protection, ensuring that sensitive information remains encrypted and isolated while being processed in memory and on cpu, by leveraging hardware-based Trusted Execution Environments (TEEs) that create secure enclaves that are locked down. For 
+1. _Secure Data-in-Use_: Secure Data-in-Use represents a transformative approach to data protection, ensuring that sensitive information remains encrypted and isolated while being processed in memory and on cpu, by leveraging hardware-based Trusted Execution Environments (TEEs) that create secure enclaves that are locked down. Intel, AMD, ARM, Nvidia and even some ESP's are examples of platforms that can support this.
 
-2. _Enable Trusted Collaboration_: Enable Trusted Collaboration by providing verifiable evidence for a TEE (application) instance. This is also called a quote, a quote consists of Platform Configuration Register measurements (PCR) which essentially are HASH'es of information like cpuid's etc. So validating a quote consisting of PCR measurements for a TEE on a 3rd party level is called Remote attestation procedure or RATS.
+2. _Enable Trusted Collaboration_: Enable Trusted Collaboration by providing verifiable evidence for a TEE (application) instance. This is also called a quote, a quote consists of Platform Configuration Register measurements (PCR) which essentially are HASH'es of information like cpu id's etc. So validating a quote consisting of PCR measurements for a TEE on a 3rd party level is called Remote attestation procedure or RATS. There are endeavors like RA-tls, to create a standardized way of cross collaboration.
 
-3. _Drive Universal Adoption_: Early attempts on creating TEE's were quite invasive and often required either reconfiguration of the runtime or complete reimplementation, TEE's of this kind were processbased. A more adoption firendly approach are making the TEE vm based, it has a MUCH MUCH larger tcb (Trusted Compute base) but are far eaisier to use. 
+3. _Drive Universal Adoption_: Early attempts on creating TEE's were quite invasive and often required either reconfiguration of the runtime or complete re-implementation, TEE's of this kind were process based. A more adoption friendly approach are making the TEE vm based, it has a MUCH MUCH larger tcb (Trusted Compute base) but are far easier to use. 
 -->
 
 ---
@@ -115,8 +115,32 @@ time 00:08:00
 1) _Attestation in practice_ ![fit 33%](media/attestation.svg)
 <!--
 time 00:12:00
- Talk on attestation / RATS
+Talk on attestation / RATS
 Explain what attestation means eg verify, stamp of approval
+
+Attestation (in layman’s terms)
+
+Attestation is a way to prove that a computer is running the right software, in a safe environment, and hasn’t been tampered with — before you trust it.
+
+How this maps to confidential computing 🔐
+
+In confidential computing:
+
+Your data is encrypted while it’s being used, not just stored or sent
+
+The code runs inside a protected area called a Trusted Execution Environment (TEE)
+
+But before you send sensitive data or encryption keys into that protected area, you want proof that:
+
+The TEE is genuine (not fake)
+
+The correct hardware is being used
+
+The expected code is running
+
+Nothing has been altered or compromised
+
+👉 That proof is called an attestation - No trust required upfront — it’s verified trust.
 
 
 -->
@@ -130,19 +154,19 @@ Explain what attestation means eg verify, stamp of approval
 <!--  
 time 00:18:00
 
-1. _Confidential Containers (CoCo) mission statement_: Allow cloud native application owners to enforce application security requirements
+1. _Confidential Containers (CoCo) mission statement_: The overarching goal of CoCo is ambitious yet clear: standardize confidential computing at the container level and simplify its integration into Kubernetes.
  - Transparent deployment of unmodified containers
  - Support for multiple TEE and hardware platforms (including nvidia)
 A trust model which separates Cloud Service Providers (CSPs) from guest applications
 Least privilege principles for the Kubernetes Cluster administration capabilities which impact delivering Confidential Computing for guest application or data inside the TEE.
 2. _Architecture_:
-Built of OSS compontents such as Kata Containers, LibVirt with a modular approach so components can be reused across Cloud Service Providers. Custom built vm's for Cloud Service Providers.
+Built of OSS components such as Kata Containers, LibVirt with a modular approach so components can be reused across Cloud Service Providers. Custom built vm's for Cloud Service Providers.
  -->
 ---
 
 ## Key Features CoCo TEE (Pod creation)
 
-1) Kubecentric, mindset
+1) Cloud native, mindset
 1) CoCo configuration defined via kubernetes annotations
 1) Pod-centric TEE design via lightweight vm's
 1) Cloud Service Provider CoCo peerpod Flavors (Azure, AWS, GCP, IBMcloud, Alibaba Cloud...)
