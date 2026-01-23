@@ -101,7 +101,7 @@ time 00:08:00
 
 1. _Secure Data-in-Use_: Secure Data-in-Use represents a transformative approach to data protection, ensuring that sensitive information remains encrypted and isolated while being processed in memory and on cpu, by leveraging hardware-based Trusted Execution Environments (TEEs) that create secure enclaves that are locked down. Intel, AMD, ARM, Nvidia and even some ESP's are examples of platforms that can support this.
 
-2. _Enable Trusted Collaboration_: Enable Trusted Collaboration by providing verifiable evidence for a TEE (application) instance. This is also called a quote, a quote consists of Platform Configuration Register measurements (PCR) which essentially are HASH'es of information like cpu id's etc. So validating a quote consisting of PCR measurements for a TEE on a 3rd party level is called Remote attestation procedure or RATS. There are endeavors like RA-tls, to create a standardized way of cross collaboration.
+2. _Enable Trusted Collaboration_: Enable Trusted Collaboration by providing verifiable evidence for a TEE (application) instance. This is also called a quote, a quote consists of Platform Configuration Register measurements (PCR) which essentially are HASH'es of information like cpu id's etc. So validating a quote consisting of PCR measurements for a TEE on a 3rd party level is called Remote attestation procedure or RATS. 
 
 3. _Drive Universal Adoption_: Early attempts on creating TEE's were quite invasive and often required either reconfiguration of the runtime or complete re-implementation, TEE's of this kind were process based. A more adoption friendly approach are making the TEE vm based, it has a MUCH MUCH larger tcb (Trusted Compute base) but are far easier to use. 
 -->
@@ -166,7 +166,7 @@ Built of OSS components such as Kata Containers, LibVirt with a modular approach
 
 ## Key Features CoCo TEE (Pod creation)
 
-1) Cloud native, mindset
+1) Cloud native mindset
 1) CoCo configuration defined via kubernetes annotations
 1) Pod-centric TEE design via lightweight vm's
 1) Cloud Service Provider CoCo peerpod Flavors (Azure, AWS, GCP, IBMcloud, Alibaba Cloud...)
@@ -181,7 +181,11 @@ Confidential computing projects are largely defined by what is inside the enclav
 
 Cloud Service Provider CoCo peerpod Flavors = Cloud Api adaptor, manages pod life cycle from creation of a complete VM to destruction.
 
+Bare metal flavor for on-prem.
+
 It's first after a successful attestation that workload begins to start.
+
+Supports a debugging provider to test or develop with.
 
 -->
 ---
@@ -242,11 +246,8 @@ ul {
 
 ## Key Features CoCo Trustee (Attestation)
 
-1. Attestation
-1. Resources
-1. Rego policies
-    - Premade configurable hardware attestation
-    - Resource access
+1. Attestation - Rego policy
+1. Resource serving - Rego policy
 1. Supports optional plugins
     - HSM
     - KMS Aliyun
@@ -256,6 +257,16 @@ ul {
 <!-- 
 time 00:38:00
 
+A Rego policy is a set of rules written in plain logic that tells a system what is allowed and what is not.
+
+Think of it as:
+
+“If these conditions are true, then this action is allowed.”
+
+Attestation are handled by a Rego policy, this can be further configured. Current support includes Intel TDX, AMD SEV-SNP, Nvidia H100
+
+
+Resource serving :
 Secure key release flow, sealed secrets
 
 -->
@@ -264,9 +275,9 @@ Secure key release flow, sealed secrets
 
 ## How to Get Started
 
-1) CoCo can be deployed via HELM charts.
-1) Guides on official website for the different cloudproviders (Azure, GCP, AWS & Bare metal)
-1) CoCo Trustee can be deployed as OLM's, transitioning towards HELM charts. Or simple DIY..
+1) CoCo can be deployed via Helm charts.
+1) Guides on official website for the different cloud providers (Azure, GCP, AWS & Bare metal)
+1) CoCo Trustee can be deployed as OLM's, transitioning towards Helm charts
 1) [Openshift](https://www.redhat.com/en/blog/exploring-openshift-confidential-containers-solution)
 
 <!-- 
