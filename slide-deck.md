@@ -110,9 +110,7 @@ time 00:08:00
 
 ## <!--fit--> Confidential Computing Basics - Attestation
 
-1) _What is attestation_
-
-1) _Attestation in practice_ ![fit 33%](media/attestation.svg)
+![bg fit 35%](media/attestation.svg)
 <!--
 time 00:12:00
 Talk on attestation / RATS
@@ -142,6 +140,7 @@ Nothing has been altered or compromised
 
 👉 That proof is called an attestation - No trust required upfront — it’s verified trust.
 
+State that the attestation provider should run in a secured location separate to the Deployment runtime.
 
 -->
 ---
