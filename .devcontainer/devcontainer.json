@@ -12,6 +12,8 @@
 			"extensions": [
 				"marp-team.marp-vscode",
 				// "Terrastruct.d2",
+				"mutantdino.resourcemonitor",
+				"streetsidesoftware.code-spell-checker",
 				"DavidAnson.vscode-markdownlint",
 				"jebbs.plantuml",
 				"vstirbu.vscode-mermaid-preview"
