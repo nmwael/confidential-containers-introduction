@@ -160,7 +160,7 @@ time 00:18:00
 A trust model which separates Cloud Service Providers (CSPs) from guest applications
 Least privilege principles for the Kubernetes Cluster administration capabilities which impact delivering Confidential Computing for guest application or data inside the TEE.
 2. _Architecture_:
-Built of OSS components such as Kata Containers, LibVirt with a modular approach so components can be reused across Cloud Service Providers. Custom built vm's for Cloud Service Providers.
+Built with OSS components such as Kata Containers, LibVirt with a modular approach so components can be reused across Cloud Service Providers. Custom built vm's for Cloud Service Providers.
  -->
 ---
 
@@ -168,7 +168,7 @@ Built of OSS components such as Kata Containers, LibVirt with a modular approach
 
 1) Cloud native mindset
 1) CoCo configuration defined via kubernetes annotations
-1) Pod-centric TEE design via lightweight vm's
+1) Pod-centric design via lightweight Kata Container vm's inside the TEE
 1) Cloud Service Provider CoCo peerpod Flavors (Azure, AWS, GCP, IBMcloud, Alibaba Cloud...)
 1) OCI image signature verification / multi key encryption support
 1) Attestation process
@@ -177,10 +177,13 @@ Built of OSS components such as Kata Containers, LibVirt with a modular approach
 <!-- 
 time 00:25:00
 
+Just use your deployments as you usually do.
+
 Confidential computing projects are largely defined by what is inside the enclave and what is not. For Confidential Containers, the enclave contains the workload pod and helper processes and daemons that facilitate the workload pod. Everything else, including the hypervisor, other pods, and the control plane, is outside of the enclave and untrusted. This division is carefully considered to balance TCB size and sharing.
 
-Cloud Service Provider CoCo peerpod Flavors = Cloud Api adaptor, manages pod life cycle from creation of a complete VM to destruction.
+Manages pod life cycle from creation of a complete VM to destruction.
 
+Cloud Service Provider CoCo peerpod Flavors = Cloud Api adaptor
 Bare metal flavor for on-prem.
 
 It's first after a successful attestation that workload begins to start.
@@ -205,7 +208,7 @@ simple as that:)
 
 ## InitData CoCo, source of truth
 
-1) Configuration of Attestation hashed and validated
+1) Configuration of Attestation provider
 1) [Attestation agent config](https://github.com/confidential-containers/guest-components/blob/main/attestation-agent/attestation-agent/config.example.toml)
 1) [Kata containers policy](https://github.com/kata-containers/kata-containers/blob/dacb14619d9a4e1927ba64be09b89773c5d54d5e/src/tools/genpolicy/genpolicy-auto-generated-policy-details.md)
 1) [OCI Image policy](https://github.com/confidential-containers/guest-components/blob/main/confidential-data-hub/example.config.toml#L105) [spec](https://github.com/containers/image/blob/main/docs/containers-policy.json.5.md)
@@ -218,8 +221,8 @@ simple as that:)
 time 00:32:00
 
 Init data describes:
-Who will attest this deployment
-Kata containers, Pod access permissions and what can the pod access of hardware amongst other things. Kata GenPolicy tool.
+Who will attest this deployment, allowed registries and authentication.
+Kata containers, Pod access permissions and what can the pod access of hardware amongst other things. Kata GenPolicy tool that will generate the Kata policy from a given deployment.
 What are allowed container registries, allowed signatures etc.
 
 -->
@@ -257,17 +260,14 @@ ul {
 <!-- 
 time 00:38:00
 
-A Rego policy is a set of rules written in plain logic that tells a system what is allowed and what is not.
-
-Think of it as:
-
+A Rego policy is a set of rules written in plaintext that tells a system what is allowed and what is not.
 “If these conditions are true, then this action is allowed.”
 
-Attestation are handled by a Rego policy, this can be further configured. Current support includes Intel TDX, AMD SEV-SNP, Nvidia H100
-
+Attestation are handled by a Rego policy, this can be further configured. Current support includes Intel TDX, AMD SEV-SNP, Nvidia Hopper / Blackwell
 
 Resource serving :
-Secure key release flow, sealed secrets
+-Secure key release flow, 
+-Sealed secrets (not Bitnami's sealed secret project)
 
 -->
 
@@ -277,11 +277,13 @@ Secure key release flow, sealed secrets
 
 1) CoCo can be deployed via Helm charts.
 1) Guides on official website for the different cloud providers (Azure, GCP, AWS & Bare metal)
-1) CoCo Trustee can be deployed as OLM's, transitioning towards Helm charts
+1) CoCo Trustee can be deployed as a operator, transitioning towards Helm charts
 1) [Openshift](https://www.redhat.com/en/blog/exploring-openshift-confidential-containers-solution)
 
 <!-- 
 time 00:40:00
+
+It's quite easy to test if you want to just try it, you don't need TEE capable hardware to test it out. You should expect to have a CoCo capable environment within a few hours.
 
 -->
 
