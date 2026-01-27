@@ -216,9 +216,9 @@ simple as that:)
 <!-- 
 time 00:32:00
 
-Init data describes:
+Init data describes security surroundings for POD:
 Who will attest this deployment
-Kata containers, Pod access permissions and what can the pod access of hardware amongst other things. Kata GenPolicy tool.
+Kata containers, Pod access permissions and what can the pod access of hardware amongst other things. Kata GenPolicy tool, can assist in generating Kata policy.
 What are allowed container registries, allowed signatures etc.
 
 -->
@@ -264,9 +264,9 @@ Think of it as:
 
 Attestation are handled by a Rego policy, this can be further configured. Current support includes Intel TDX, AMD SEV-SNP, Nvidia H100
 
-
 Resource serving :
-Secure key release flow, sealed secrets
+Secure key release flow (after attestation allow resource access), 
+Sealed secrets: Encrypted secrets is Kubernetes secrets, with meta data in a jwt format.   
 
 -->
 
@@ -281,6 +281,7 @@ Secure key release flow, sealed secrets
 
 <!-- 
 time 00:40:00
+Going through the guide should not take more than a few hours and can be done without TEE capable hardware.
 
 -->
 
