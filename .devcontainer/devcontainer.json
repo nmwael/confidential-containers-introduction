@@ -21,7 +21,7 @@
 		}
 	},
 	"features": {
-		"ghcr.io/devcontainers/features/node:1": {
+		"ghcr.io/devcontainers/features/node:2": {
 			"installYarnUsingApt": true,
 			"pnpmVersion": "latest",
 			"nvmVersion": "latest"
